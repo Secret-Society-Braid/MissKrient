@@ -18,7 +18,7 @@ public abstract class Auth {
   public String constructAuthUrl() {
     // Delegate generate process to AuthUrlConfig.
     log.info("Delegate generate URL process to AuthUrlConfig: {}", config.toString());
-    return this.config.build();
+    return this.config.apply();
   }
 
   public abstract void authenticate();

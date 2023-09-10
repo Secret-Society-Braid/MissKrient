@@ -58,7 +58,7 @@ class MiAuthTest {
     // prepare
     when(config.getHostname()).thenReturn("misskey.io");
     when(config.getSessionUuid()).thenReturn(sessionUuid);
-    when(config.build()).thenReturn(expectedUrl);
+    when(config.apply()).thenReturn(expectedUrl);
 
     r = new AccountRepository();
 
@@ -77,7 +77,7 @@ class MiAuthTest {
 
     auth.authenticate();
 
-    verify(config, times(1)).build();
+    verify(config, times(1)).apply();
   }
 
   @Test
