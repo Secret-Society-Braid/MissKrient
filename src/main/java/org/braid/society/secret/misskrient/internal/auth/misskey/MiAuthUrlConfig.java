@@ -23,7 +23,7 @@ public class MiAuthUrlConfig implements AuthUrlConfig {
     this.scopes = Arrays.stream(Scope.ALL).toList();
   }
 
-  public static MiAuthUrlConfig newBuilder(String sessionUuid) {
+  public static MiAuthUrlConfig newConfig(String sessionUuid) {
     return new MiAuthUrlConfig(sessionUuid);
   }
 
@@ -61,8 +61,8 @@ public class MiAuthUrlConfig implements AuthUrlConfig {
   }
 
   @Override
-  public String build() {
+  public String apply() {
     return String.format(BASE_URL, this.getHostname(), this.getSessionUuid(),
-      this.joinScopes(getScopes()));
+      joinScopes(getScopes()));
   }
 }

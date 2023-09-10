@@ -7,7 +7,7 @@ import misskey4j.entity.contant.Scope;
 
 public interface AuthUrlConfig {
 
-  String build();
+  String apply();
 
   @Nonnull
   String getHostname();
