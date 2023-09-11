@@ -13,6 +13,9 @@ public interface MfmNode {
   @Nonnull
   MfmSyntax getSyntax();
 
+  @Nonnull
+  String getAsHtml();
+
   enum MfmSyntax {
     BLOCK,
     INLINE;
