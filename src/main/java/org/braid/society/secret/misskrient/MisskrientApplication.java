@@ -15,7 +15,7 @@ public class MisskrientApplication extends Application {
   @Override
   public void start(Stage stage) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(
-      MisskrientApplication.class.getResource("hello-view.fxml"));
+      MisskrientApplication.class.getResource("main-view.fxml"));
     Scene scene = new Scene(fxmlLoader.load(), 960, 640);
     stage.setTitle("Hello!");
     stage.setScene(scene);
