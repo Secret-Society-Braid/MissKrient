@@ -65,7 +65,7 @@ public interface MfmNode {
         Arrays
           .stream(MfmNodeType.values())
           .map(MfmNodeType::getType)
-          .filter(s::equals)
+          .filter(s::equalsIgnoreCase)
           .findFirst()
           .orElse("text"));
     }
