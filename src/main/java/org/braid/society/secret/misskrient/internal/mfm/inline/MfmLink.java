@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.braid.society.secret.misskrient.api.mfm.MfmInline;
 import org.braid.society.secret.misskrient.api.mfm.MfmNode;
 
-@NoArgsConstructor
+
 @Slf4j
 public class MfmLink extends MfmInline {
 

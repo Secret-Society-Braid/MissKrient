@@ -24,7 +24,7 @@ import org.braid.society.secret.misskrient.api.mfm.MfmNode;
  * @deprecated This syntax is currenly planned to be removed in the future Misskey Version. Alternative syntax is presented.
  * @see MfmFunction
  */
-@NoArgsConstructor
+
 @Slf4j
 @Deprecated(forRemoval = true, since = "0.0.1")
 public class MfmShakenStrings extends MfmInline {

@@ -5,16 +5,13 @@ import java.util.List;
 import java.util.Map;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import org.braid.society.secret.misskrient.internal.mfm.AbstractMfmNode;
 
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-public abstract class MfmBlock implements MfmNode {
-
-  protected List<MfmNode> children;
-  protected Map<String, String> props;
+public abstract class MfmBlock extends AbstractMfmNode {
 
   public MfmBlock(List<MfmNode> children, Map<String, String> props) {
-    this.children = children;
-    this.props = props;
+    super(children, props);
   }
 
   @Nonnull
@@ -23,5 +20,4 @@ public abstract class MfmBlock implements MfmNode {
     return MfmSyntax.BLOCK;
   }
 
-  // TODO: add common methods for Block type node
 }

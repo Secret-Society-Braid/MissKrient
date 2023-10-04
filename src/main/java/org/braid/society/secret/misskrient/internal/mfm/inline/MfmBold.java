@@ -9,7 +9,7 @@ import org.braid.society.secret.misskrient.api.mfm.MfmInline;
 import org.braid.society.secret.misskrient.api.mfm.MfmNode;
 
 @Slf4j
-@NoArgsConstructor
+
 public class MfmBold extends MfmInline {
 
   public MfmBold(List<MfmNode> children,
