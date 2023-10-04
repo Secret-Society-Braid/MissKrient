@@ -9,6 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 public class MisskrientController {
 
   @FXML
+  protected Button funcButton;
+
+  @FXML
   protected void onColumnSwitchButtonPressed(ActionEvent e) {
     log.info("onColumnSwitchButtonPressed");
     log.info("Event detail: {}", e);
@@ -22,6 +25,13 @@ public class MisskrientController {
     }
 
     // TODO: implement column switching by button text
+  }
+
+  @FXML
+  protected void onFuncButtonPressed(ActionEvent e) {
+    log.info("onFuncButtonPressed");
+    log.info("Event detail: {}", e);
+    log.info("Event source: {}", e.getSource());
   }
 
 }
