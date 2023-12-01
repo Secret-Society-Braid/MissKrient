@@ -35,5 +35,4 @@ jobs:
             --scan
             --build-cache
             --configure-on-demand
-            --configuration-cache
             --refresh-dependencies

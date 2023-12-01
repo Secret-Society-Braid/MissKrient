@@ -36,4 +36,3 @@ jobs:
             --build-cache
             --scan
             --configure-on-demand
-            --configuration-cache
