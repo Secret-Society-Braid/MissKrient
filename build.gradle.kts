@@ -47,7 +47,7 @@ dependencies {
     implementation("org.mapstruct:mapstruct-processor:1.3.1.Final")
     implementation("org.projectlombok:lombok:${lombokVersion}")
     implementation("com.google.guava:guava:32.0.1-jre")
-    implementation("ch.qos.logback:logback-classic:1.4.8")
+    implementation("ch.qos.logback:logback-classic:1.4.13")
     implementation("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
     implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
     implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
