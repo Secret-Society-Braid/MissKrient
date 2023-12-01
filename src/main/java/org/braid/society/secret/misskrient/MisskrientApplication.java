@@ -1,14 +1,20 @@
 package org.braid.society.secret.misskrient;
 
 import java.io.IOException;
+import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.braid.society.secret.misskrient.api.Initializable;
+import org.braid.society.secret.misskrient.internal.auth.CredentialHelper;
 
 public class MisskrientApplication extends Application {
 
   public static void main(String[] args) {
+    initializer(
+        CredentialHelper.summon()
+    );
     launch();
   }
 
@@ -20,5 +26,16 @@ public class MisskrientApplication extends Application {
     stage.setTitle("Hello!");
     stage.setScene(scene);
     stage.show();
+  }
+
+  private static void initializer(Initializable... instances) {
+    List<Initializable> initializables = List.of(instances);
+    initializables.forEach((i) -> {
+      if(i.isInitialized()) {
+        return;
+      }
+      i.initialize();
+      i.setInitialized(true);
+    });
   }
 }
