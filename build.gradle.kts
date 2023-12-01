@@ -59,7 +59,7 @@ dependencies {
     // Test deps
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-    testImplementation("org.mockito:mockito-junit-jupiter:5.4.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.8.0")
     testImplementation("com.google.truth:truth:1.1.5") {
         isTransitive = false
     }
