@@ -30,22 +30,25 @@ public class CredentialHelper implements Initializable, Cleanable, Serializable 
   private ConcurrentHashMap<UUID, AccountInfo> credentialWarehouse;
   private static CredentialHelper instance;
   private final transient AtomicBoolean isInitialized = new AtomicBoolean(false);
+  private final transient AtomicBoolean isUpdated = new AtomicBoolean(false);
 
-  private static final String CREDENTIAL_HELPER_OBJECT_PATH = "generated/system/secure/credentialHelper";
+  private static final Path CREDENTIAL_HELPER_OBJECT_PATH = Path.of("generated/system/secure/credentialHelper");
 
   @Override
   public void initialize() {
-    if(Files.notExists(Path.of(CREDENTIAL_HELPER_OBJECT_PATH))) {
+    if(this.isInitialized()) {
+      return;
+    }
+    if(Files.notExists(CREDENTIAL_HELPER_OBJECT_PATH)) {
       try {
-        Files.createDirectories(Path.of(CREDENTIAL_HELPER_OBJECT_PATH));
-        isInitialized.compareAndExchange(false, true);
+        Files.createDirectories(CREDENTIAL_HELPER_OBJECT_PATH);
       } catch (IOException e) {
         log.error("Failed to create credential helper object file. Please check the permission of the directory.", e);
         log.error("If the problem persists, please contact the developer.");
       }
     } else {
       try {
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(CREDENTIAL_HELPER_OBJECT_PATH));
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(CREDENTIAL_HELPER_OBJECT_PATH.toString()));
         instance = (CredentialHelper) ois.readObject();
       } catch (IOException e) {
         log.error("Failed to read credential helper object file.", e);
@@ -59,8 +62,28 @@ public class CredentialHelper implements Initializable, Cleanable, Serializable 
   }
 
   @Override
-  public void cleanUp() {
+  public boolean isInitialized() {
+    return isInitialized.get();
+  }
 
+  @Override
+  public void setInitialized(boolean isInitialized) {
+    this.isInitialized.set(isInitialized);
+  }
+
+  @Override
+  public void cleanUp() {
+    if(!this.isUpdated.get()) {
+      return;
+    }
+    try {
+      Files.deleteIfExists(CREDENTIAL_HELPER_OBJECT_PATH);
+      Files.createFile(CREDENTIAL_HELPER_OBJECT_PATH);
+    } catch (IOException e) {
+      log.error("Failed to create credential helper object file. Please check the permission of the directory.", e);
+      log.error("If the problem persists, please contact the developer.");
+      log.error("The old credential helper will be used for the next session.");
+    }
   }
 
   /**
@@ -81,6 +104,7 @@ public class CredentialHelper implements Initializable, Cleanable, Serializable 
    */
   @Nonnull
   public UUID store(@Nonnull UUID unique, @Nonnull AccountInfo accountInfo) {
+    this.isUpdated.set(true);
     credentialWarehouse.put(unique, accountInfo);
     return unique;
   }
