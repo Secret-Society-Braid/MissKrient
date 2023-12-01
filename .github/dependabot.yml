@@ -7,8 +7,17 @@ version: 2
 updates:
   - package-ecosystem: "gradle" # See documentation for possible values
     directory: "/" # Location of package manifests
+    target-branch: "main"
     schedule:
       interval: daily
     reviewers:
       - hizumiaoba
+    open-pull-requests-limit: 10
+  - package-ecosystem: github-actions
+    directory: ".github/workflows"
+    target-branch: "main"
+    schedule:
+      interval: daily
+    reviewers:
+        - hizumiaoba
     open-pull-requests-limit: 10
