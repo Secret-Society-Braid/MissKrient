@@ -1,7 +1,6 @@
 package org.braid.society.secret.misskrient.internal.auth;
 
 import jakarta.annotation.Nonnull;
-import java.beans.Transient;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -51,6 +50,10 @@ public class CredentialHelper implements Initializable, Cleanable, Serializable 
       } catch (IOException e) {
         log.error("Failed to read credential helper object file.", e);
         log.warn("The temporal helper will be created instead.");
+      } catch (ClassNotFoundException noClass) {
+        log.error("Failed to deserialize credential helper object.");
+        log.error("The user must re-authenticate to use the app.", noClass);
+        throw new RuntimeException(noClass);
       }
     }
   }
