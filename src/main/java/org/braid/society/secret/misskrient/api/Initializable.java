@@ -11,4 +11,16 @@ public interface Initializable {
    * this method will be called by main opening process.
    */
   void initialize();
+
+  /**
+   * Set the initialized state of the class.
+   * @param initialized the initialized state of the class.
+   */
+  void setInitialized(boolean initialized);
+
+  /**
+   * Get the initialized state of the class.
+   * @return the initialized state of the class.
+   */
+  boolean isInitialized();
 }
