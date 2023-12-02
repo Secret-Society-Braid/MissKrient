@@ -6,6 +6,12 @@
         %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
       </pattern>
     </encoder>
+
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>TRACE</level>
+      <onMatch>DENY</onMatch>
+      <onMismatch>ACCEPT</onMismatch>
+    </filter>
   </appender>
 
   <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="FILE">
@@ -15,6 +21,12 @@
       </pattern>
     </encoder>
 
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>TRACE</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+
     <fileNamePattern>%d{yyyy-MM-dd}.log</fileNamePattern>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -22,7 +34,7 @@
     </rollingPolicy>
   </appender>
 
-  <root level="DEBUG">
+  <root level="TRACE">
     <appender-ref ref="STDOUT"/>
     <appender-ref ref="FILE"/>
   </root>
