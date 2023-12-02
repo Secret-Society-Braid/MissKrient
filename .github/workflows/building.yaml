@@ -37,6 +37,9 @@ jobs:
   building:
     needs:
       - testing
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
     runs-on: ${{ matrix.os }}
     if: ${{ success() }} && github.event_name == 'merge_group'
     steps:
