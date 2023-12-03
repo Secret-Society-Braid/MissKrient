@@ -36,7 +36,7 @@ javafx {
     modules = listOf("javafx.controls", "javafx.fxml")
 }
 
-val junitVersion = "5.9.2"
+val junitVersion = "5.10.1"
 val lombokVersion = "1.18.28"
 val jacksonVersion = "2.15.2"
 val jakartaVersion = "2.1.1"
