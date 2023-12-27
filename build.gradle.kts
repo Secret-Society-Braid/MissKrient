@@ -4,7 +4,6 @@ plugins {
     id("org.javamodularity.moduleplugin") version "1.8.12"
     id("org.openjfx.javafxplugin") version "0.1.0"
     id("org.beryx.jlink") version "3.0.1"
-    id("org.jetbrains.kotlin.jvm") version "1.9.22"
 }
 
 group = "org.braid.society.secret"
@@ -42,8 +41,6 @@ val jacksonVersion = "2.16.1"
 val jakartaVersion = "2.1.1"
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    // Artifact deps
     implementation("org.mapstruct:mapstruct-processor:1.5.5.Final")
     implementation("org.projectlombok:lombok:${lombokVersion}")
     implementation("com.google.guava:guava:33.0.0-jre")
@@ -53,7 +50,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
     implementation("com.github.uakihir0:misskey4j:0.5.0")
     implementation("jakarta.annotation:jakarta.annotation-api:${jakartaVersion}")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.12")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
 
     // Test deps
@@ -74,6 +71,7 @@ tasks.test {
 }
 
 jlink {
+    addExtraDependencies("org.jetbrains.kotlin:kotlin-stdlib:1.9.21")
     imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
     options = mutableListOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages")
     launcher {
