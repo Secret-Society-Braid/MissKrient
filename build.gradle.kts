@@ -53,7 +53,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
     implementation("com.github.uakihir0:misskey4j:0.5.0")
     implementation("jakarta.annotation:jakarta.annotation-api:${jakartaVersion}")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.12")
 
 
     // Test deps
