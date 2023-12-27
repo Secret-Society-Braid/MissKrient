@@ -34,6 +34,13 @@ jobs:
             --no-build-cache
             --scan
             --configure-on-demand
+      - name: compress test reports
+        run: zip -r9 test-report.zip build/reports/*
+      - name: upload test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-report
+          path: build/test-report.zip
   building:
     needs:
       - testing
