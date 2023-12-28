@@ -34,6 +34,16 @@ jobs:
             --no-build-cache
             --scan
             --configure-on-demand
+      - name: compress test reports
+        if: ${{ matrix.os }} == 'ubuntu-latest'
+        run: |
+          tar -czvf test-report.tar.gz build/reports/*
+      - name: upload test report
+        if: ${{ matrix.os }} == 'ubuntu-latest'
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-report
+          path: test-report.tar.gz
   building:
     needs:
       - testing
