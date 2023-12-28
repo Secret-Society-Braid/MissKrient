@@ -20,6 +20,8 @@ public class MisskrientApplication extends Application {
     Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
     scene.getStylesheets().add(
       Objects.requireNonNull(MisskrientApplication.class.getResource("main.css")).toExternalForm());
+    stage.setMinWidth(1080);
+    stage.setMinHeight(720);
     stage.setTitle("Hello!");
     stage.setScene(scene);
     stage.show();
