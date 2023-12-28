@@ -3,7 +3,6 @@ module org.braid.society.secret.misskrient {
   requires javafx.fxml;
 
   requires java.sql;
-  requires kotlin.stdlib;
   requires com.google.common;
   requires org.slf4j;
   requires java.desktop;
