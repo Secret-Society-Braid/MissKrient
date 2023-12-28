@@ -7,6 +7,7 @@ import misskey4j.api.request.i.IRequest;
 import misskey4j.api.response.i.IResponse;
 import org.braid.society.secret.misskrient.api.account.AccountInfo;
 import org.braid.society.secret.misskrient.api.database.RepositorySelector;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -15,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 class InstanceWithAccountTest {
 
   @Test
+  @Disabled("Intended to be run locally")
   void fromAccountTest() {
     AccountInfo i = RepositorySelector.forAccount().get(0);
     Misskey m = i.getInstance();
