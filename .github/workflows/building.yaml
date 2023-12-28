@@ -31,7 +31,7 @@ jobs:
           arguments: |
             test
             -i
-            --build-cache
+            --no-build-cache
             --scan
             --configure-on-demand
   building:
@@ -61,6 +61,6 @@ jobs:
             jpackageImage
             -i
             --scan
-            --build-cache
+            --no-build-cache
             --configure-on-demand
             --refresh-dependencies
