@@ -48,6 +48,9 @@ public class AccountRepository implements Repository<AccountInfo> {
 
   @Override
   public AccountInfo get(int id) {
+    if (this.isEmpty()) {
+      return null;
+    }
     return this.accounts.get(id);
   }
 
