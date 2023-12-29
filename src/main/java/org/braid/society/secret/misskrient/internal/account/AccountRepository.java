@@ -16,6 +16,7 @@ public class AccountRepository implements Repository<AccountInfo> {
 
   private static final String REPO_FILE_NAME = "repo/accounts.json";
   private static final ObjectMapper MAPPER = new ObjectMapper();
+  private List<AccountInfo> accounts;
 
   public AccountRepository() {
     try {
@@ -29,12 +30,17 @@ public class AccountRepository implements Repository<AccountInfo> {
     }
   }
 
+  private void setAccounts() {
+    this.accounts = this.load();
+  }
+
   @Override
   public void save(AccountInfo accountInfo) {
-    List<AccountInfo> curr = this.load();
-    curr.add(accountInfo);
+    if (this.accounts == null) {
+      this.setAccounts();
+    }
     try {
-      this.write(curr);
+      this.write(this.accounts);
     } catch (IOException e) {
       log.error("Error while saving account info.", e);
     }
@@ -42,15 +48,20 @@ public class AccountRepository implements Repository<AccountInfo> {
 
   @Override
   public AccountInfo get(int id) {
-    return this.load().get(id);
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.accounts.get(id);
   }
 
   @Override
   public boolean delete(int id) {
-    List<AccountInfo> curr = this.load();
-    curr.remove(id);
+    if (this.accounts == null) {
+      this.setAccounts();
+    }
+    this.accounts.remove(id);
     try {
-      this.write(curr);
+      this.write(this.accounts);
     } catch (IOException e) {
       log.error("Error while deleting account info.", e);
       return false;
@@ -75,5 +86,13 @@ public class AccountRepository implements Repository<AccountInfo> {
 
   private void write(List<AccountInfo> accounts) throws IOException {
     MAPPER.writer().writeValue(Paths.get(REPO_FILE_NAME).toFile(), accounts);
+  }
+
+  @Override
+  public boolean isEmpty() {
+    if (this.accounts == null) {
+      this.setAccounts();
+    }
+    return this.accounts.isEmpty();
   }
 }

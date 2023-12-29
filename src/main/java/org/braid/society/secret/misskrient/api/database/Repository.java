@@ -7,4 +7,6 @@ public interface Repository<T> {
   T get(int id);
 
   boolean delete(int id);
+
+  boolean isEmpty();
 }

@@ -1,4 +1,4 @@
-package org.braid.society.secret.misskrient.misskey;
+package org.braid.society.secret.misskrient.misskey.account;
 
 import static com.google.common.truth.Truth.assertThat;
 
