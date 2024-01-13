@@ -40,6 +40,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/log-*/
-/repo/
+**/log-*/
+**/repo/
 /.idea/
