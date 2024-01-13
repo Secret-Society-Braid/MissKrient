@@ -75,7 +75,7 @@ tasks.test {
 }
 
 jlink {
-    addExtraDependencies("org.jetbrains.kotlin:kotlin-stdlib:1.9.21")
+    addExtraDependencies("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
     imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
     options = mutableListOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages")
     launcher {
