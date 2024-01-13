@@ -5,6 +5,7 @@ plugins {
     id("org.javamodularity.moduleplugin") version "1.8.12"
     id("org.openjfx.javafxplugin") version "0.1.0"
     id("org.beryx.jlink") version "3.0.1"
+  id("misskrient-application-conventions")
 }
 
 group = "org.braid.society.secret"
@@ -52,6 +53,7 @@ dependencies {
     implementation("com.github.uakihir0:misskey4j:0.5.0")
     implementation("jakarta.annotation:jakarta.annotation-api:${jakartaVersion}")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+  implementation(project(":mfmparser"))
 
 
     // Test deps
