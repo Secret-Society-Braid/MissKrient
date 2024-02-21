@@ -2,7 +2,7 @@ plugins {
     java
     application
     jacoco
-    id("org.javamodularity.moduleplugin") version "1.8.12"
+    id("org.javamodularity.moduleplugin") version "1.8.14"
     id("org.openjfx.javafxplugin") version "0.1.0"
     id("org.beryx.jlink") version "3.0.1"
   id("misskrient-application-conventions")
