@@ -20,7 +20,7 @@ dependencies {
   implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersionNotation}")
   implementation("com.fasterxml.jackson.core:jackson-core:${jacksonVersionNotation}")
   implementation("jakarta.annotation:jakarta.annotation-api:${jakartaVersionNotation}")
-  implementation("ch.qos.logback:logback-classic:1.4.14")
+  implementation("ch.qos.logback:logback-classic:1.5.3")
 
   annotationProcessor(lombokDepNotation)
   annotationProcessor("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersionNotation}")
