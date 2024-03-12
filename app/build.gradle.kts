@@ -39,7 +39,7 @@ javafx {
 
 val junitVersion = "5.10.1"
 val lombokVersion = "1.18.30"
-val jacksonVersion = "2.16.1"
+val jacksonVersion = "2.17.0"
 val jakartaVersion = "2.1.1"
 
 dependencies {
