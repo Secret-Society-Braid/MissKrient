@@ -9,7 +9,7 @@ repositories {
   google()
 }
 
-var lombokDepNotation = "org.projectlombok:lombok:1.18.30"
+var lombokDepNotation = "org.projectlombok:lombok:1.18.32"
 var jacksonVersionNotation = "2.16.1"
 var jakartaVersionNotation = "2.1.1"
 
