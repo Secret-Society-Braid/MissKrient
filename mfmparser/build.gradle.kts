@@ -11,7 +11,7 @@ repositories {
 
 var lombokDepNotation = "org.projectlombok:lombok:1.18.32"
 var jacksonVersionNotation = "2.16.1"
-var jakartaVersionNotation = "2.1.1"
+var jakartaVersionNotation = "3.0.0"
 
 dependencies {
   implementation(lombokDepNotation)
