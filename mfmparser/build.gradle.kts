@@ -15,7 +15,7 @@ var jakartaVersionNotation = "2.1.1"
 
 dependencies {
   implementation(lombokDepNotation)
-  implementation("com.google.guava:guava:33.0.0-jre")
+  implementation("com.google.guava:guava:33.2.0-jre")
   implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersionNotation}")
   implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersionNotation}")
   implementation("com.fasterxml.jackson.core:jackson-core:${jacksonVersionNotation}")
