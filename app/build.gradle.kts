@@ -38,7 +38,7 @@ javafx {
 }
 
 val junitVersion = "5.10.3"
-val lombokVersion = "1.18.32"
+val lombokVersion = "1.18.34"
 val jacksonVersion = "2.16.1"
 val jakartaVersion = "2.1.1"
 
