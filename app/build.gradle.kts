@@ -45,7 +45,7 @@ val jakartaVersion = "2.1.1"
 dependencies {
     implementation("org.mapstruct:mapstruct-processor:1.5.5.Final")
     implementation("org.projectlombok:lombok:${lombokVersion}")
-    implementation("com.google.guava:guava:33.0.0-jre")
+    implementation("com.google.guava:guava:33.2.1-jre")
     implementation("ch.qos.logback:logback-classic:1.5.3")
     implementation("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
     implementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
