@@ -43,7 +43,7 @@ val jacksonVersion = "2.16.1"
 val jakartaVersion = "2.1.1"
 
 dependencies {
-    implementation("org.mapstruct:mapstruct-processor:1.5.5.Final")
+    implementation("org.mapstruct:mapstruct-processor:1.6.0")
     implementation("org.projectlombok:lombok:${lombokVersion}")
     implementation("com.google.guava:guava:33.0.0-jre")
     implementation("ch.qos.logback:logback-classic:1.5.3")
